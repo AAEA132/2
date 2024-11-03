@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  redis:
+    image: ghcr.io/aut-cloud-computing-fall-2024/redis:latest
+    container_name: redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - network-cloud-hw2
+
+  app:
+    build: .
+    container_name: hw2-app
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=${API_KEY}
+      - REDIS_CACHE_TIME=${REDIS_CACHE_TIME:-300}
+      - SERVER_PORT=${SERVER_PORT:-8000}
+    depends_on:
+      - redis
+    networks:
+      - network-cloud-hw2
+
+volumes:
+  redis_data:
+
+networks:
+  network-cloud-hw2:
+
+
