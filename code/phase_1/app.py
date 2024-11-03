@@ -50,7 +50,7 @@ def define_word_route(word):
     else:
         return jsonify({"error": "Definition not found"}), 404
 
-@app.route('/random', methods=['GET'])
+@app.route('/random-word', methods=['GET'])
 def random_word():
     max_retries = 5
     for _ in range(max_retries):
