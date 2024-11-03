@@ -25,7 +25,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./code/phase_1
         file: ./code/phase_1/Dockerfile
         push: true
         tags: dev132/cloud-hw2-phase1:latest
