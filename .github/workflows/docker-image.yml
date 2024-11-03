@@ -26,6 +26,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: ./Dockerfile
+        file: ./code/phase_1/Dockerfile
         push: true
         tags: dev132/cloud-hw2-phase1:latest
